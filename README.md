@@ -10,7 +10,7 @@ Inspire Design - https://www.figma.com/proto/I4R7hrlzZeXM3SyQ9YVFoN/Central-cine
 
 APPLICATION-start steps
 
-1.  Clone the repository from GitHub to your local machine using the command: git clone git@github.com:alianu23/cinema-app.git
+1.  Clone the repository from GitHub to your local machine using the command: git@github.com:Leap-MERN-2023/cinema-app.git
 
 2.  front, back end need to install node
 
