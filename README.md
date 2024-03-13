@@ -14,7 +14,7 @@ APPLICATION-start steps
 
 2.  front, back end need to install node
 
-3.  install express, cors, colors, dotenv, nodemon to devDependencies
+3.  backend installations: install express, cors, colors, dotenv, nodemon to devDependencies
 
 4.  npm run dev both frontend and backend
 
