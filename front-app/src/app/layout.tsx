@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/app/header";
 import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/header";
+import { Toaster } from "@/components/ui/sonner";
 import { Footer } from "@/components";
 
 const inter = Inter({ subsets: ["latin"] });
