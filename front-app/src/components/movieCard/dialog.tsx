@@ -1,5 +1,3 @@
-import { CopyIcon } from "@radix-ui/react-icons";
-
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -11,14 +9,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { cinemas } from "./cinemas";
 
 type ICardProps = {
   card: any;
 };
 
-export function DialogCloseButton({ card }: ICardProps) {
+export function DialogOpen({ card }: ICardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -29,20 +27,64 @@ export function DialogCloseButton({ card }: ICardProps) {
           Дэлгэрэнгүй
         </Button>
       </DialogTrigger>
-      <DialogContent className="bg-slate-700 transition ease-in duration-[150]">
-        <DialogHeader>
-          <DialogTitle>{card.title}</DialogTitle>
-          <img src={card.horizontalPoster} />
-          <DialogDescription>{card.description}</DialogDescription>
-        </DialogHeader>
-        <div className="flex items-center space-x-2"></div>
-        <DialogFooter className="sm:justify-center">
-          <DialogClose asChild>
-            <Button type="button" variant="secondary">
-              Close
-            </Button>
-          </DialogClose>
-        </DialogFooter>
+      <DialogContent className="p-0 bg-slate-700 max-h-[800px] min-w-[1200px] border-none overflow-scroll">
+        <div className="overflow-hidden">
+          <div className="flex backdrop-blur-xl p-6 gap-40">
+            <section className="flex justify-center gap-4 z-10">
+              <div className="rounded-lg overflow-hidden w-[400px] flex justify-center items-center">
+                <img src={card.movieImages} alt={card.title + " image"} />
+              </div>
+            </section>
+            <section className="flex flex-col text-white z-20">
+              <h1 className="text-6xl font-bold mt-10">{card.title}</h1>
+              <div className="flex gap-6 items-center mt-10">
+                <p className="text-2xl font-bold">Найруулагч:</p>
+                <div className="text-2xl">{card.director}</div>
+              </div>
+              <div className="flex gap-6 items-center mt-10">
+                <p className="text-2xl font-bold">Төрөл:</p>
+                <div className="text-2xl">Action, Drama</div>
+              </div>
+              <div className="flex mt-20 gap-10">
+                <Button className="bg-white px-10 text-black h-12 hover:text-white">
+                  Трейлер
+                </Button>
+                <Button className="bg-rose-500 px-10 h-12">Захиалах</Button>
+              </div>
+            </section>
+          </div>
+          <div className="absolute -z-10 top-0">
+            <img src={card.horizontalPoster} alt="" width="1500px" />
+          </div>
+          <div className="bg-gradient-to-b from-gray-900 to-slate-900 text-white m-0 pl-10 pt-10">
+            <p className="text-4xl font-bold">Тухай: </p>
+            <div className="text-3xl font-light mt-4">{card.description}</div>
+            <p className="text-4xl font-bold mt-4">Дүрүүдэд: </p>
+            <div className="flex gap-10 mt-10">
+              {card.casting.map((cast: any) => {
+                return (
+                  <div className="flex flex-col gap-4">
+                    <Avatar className="rounded-md w-20 h-20">
+                      <AvatarImage src={cast.image} alt="@shadcn" />
+                      <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <p>{cast.actor}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-4xl font-bold mt-4">Кино театрууд:</p>
+            <div className="flex gap-10 mt-10 pb-10">
+              {cinemas.map((cinema: any) => {
+                return (
+                  <div className="flex rounded-lg w-[100px] h-[100px] overflow-hidden justify-center items-center">
+                    <img src={cinema.img} alt={cinema.name} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   );
