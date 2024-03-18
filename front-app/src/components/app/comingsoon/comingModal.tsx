@@ -1,22 +1,14 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cinemas } from "./cinemas";
+import { Resizable } from "./resizeImage";
 
 type ICardProps = {
   card: any;
 };
 
-export function DialogOpen({ card }: ICardProps) {
+export function ComingModal({ card }: ICardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -49,7 +41,6 @@ export function DialogOpen({ card }: ICardProps) {
                 <Button className="bg-white px-10 text-black h-12 hover:text-white">
                   Трейлер
                 </Button>
-                <Button className="bg-rose-500 px-10 h-12">Захиалах</Button>
               </div>
             </section>
           </div>
@@ -83,6 +74,7 @@ export function DialogOpen({ card }: ICardProps) {
                 );
               })}
             </div>
+            <Resizable card={card} />
           </div>
         </div>
       </DialogContent>
