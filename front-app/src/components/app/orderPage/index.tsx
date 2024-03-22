@@ -20,7 +20,7 @@ export const OrderPage = (props: Props) => {
         return (
           <ul className=" dark:text-white flex justify-center  lg:w-1/5">
             <div className="flex items-center  ">
-              <li className="bg-red-500 text-white rounded-md p-2 ">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
                 CinemaCard
               </li>
               <div className="w-16 h-[1px] bg-white"></div>
@@ -38,43 +38,82 @@ export const OrderPage = (props: Props) => {
         );
       case 2:
         return (
-          <ul className=" dark:text-white flex  gap-10   w-1/5">
-            <li className="bg-red-500 texte-white rounded-md">CinemaCard</li>
-            <div>
-              <li className="bg-red-500 text-white rounded-md">OrderIndex</li>
-              <div className=" line-through w-28 h-[1px]"></div>
+          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
+            <div className="flex items-center">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+                CinemaCard
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
             </div>
-            <li className="">Checkout</li>
-            <li className="">PaymentQr</li>
+            <div className="flex items-center ">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+                orderIndex
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <div className="flex items-center">
+              <li className=" text-white rounded-md p-2">Checkout</li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <li className=" text-white rounded-md p-2">Payment</li>
           </ul>
         );
 
       case 3:
         return (
-          <ul className=" dark:text-white flex gap-10 w-1/5">
-            <li className="bg-red-500">CinemaCard</li>
-            <li className="bg-red-500">OrderIndex</li>
-            <div>
-              <li className="bg-red-500">Checkout</li>
-              <div className=" line-through w-28 h-[1px]"></div>
+          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
+            <div className="flex items-center ">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+                CinemaCard
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
             </div>
-            <li className="">PaymentQr</li>
+            <div className="flex items-center mx-2">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+                orderIndex
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <div className="flex items-center">
+              <li className=" bg-red-500 text-white rounded-md p-2 mx-2">
+                Checkout
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <li className=" text-white rounded-md p-2">Payment</li>
           </ul>
         );
       case 4:
         return (
-          <ul className=" dark:text-white flex gap-10 w-1/5">
-            <li className="bg-red-500">CinemaCard</li>
-            <li className="bg-red-500">OrderIndex</li>
-            <li className="bg-red-500">Checkout</li>
-            <li className="bg-red-500">PaymentQr</li>
+          <ul className=" dark:text-white flex justify-center  lg:w-1/5">
+            <div className="flex items-center  ">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+                CinemaCard
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <div className="flex items-center">
+              <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+                orderIndex
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <div className="flex items-center">
+              <li className=" bg-red-500 text-white rounded-md p-2 mx-2">
+                Checkout
+              </li>
+              <div className="w-16 h-[1px] bg-white"></div>
+            </div>
+            <li className="bg-red-500 text-white rounded-md p-2 mx-2">
+              Payment
+            </li>
           </ul>
         );
     }
   };
 
   return (
-    <div className=" flex flex-col h-screen bg-slate-800 pt-20 items-center justify-center">
+    <div className=" flex flex-col h-full bg-slate-800 pt-20 items-center justify-center">
       {StepSwitch()}
       <div>
         {step === 1 && <CinemaCard changeStep={changeStep} />}

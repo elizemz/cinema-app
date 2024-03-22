@@ -26,7 +26,7 @@ const formSchema = z.object({
   phone: z.string().refine((value) => /^\d{8}$/.test(value), {
     message: "Утасны дугаар буруу байна",
   }),
-  banknumber: z.string().refine((value) => /^\d{16}$/.test(value), {
+  banknumber: z.string().refine((value) => /^\d{9}$/.test(value), {
     message: "Дансны дугаар буруу байна",
   }),
   cvv: z.string().refine((value) => /^\d{3}$/.test(value), {
@@ -52,7 +52,7 @@ export function Checkout({ changeStep }: any) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex justify-between w-[800px] max-h-[450px] bg-slate-900 px-8 py-12 rounded-xl"
+        className="flex justify-between w-[800px] max-h-[450px] bg-slate-900 px-8 py-12 rounded-xl mt-10"
       >
         <div className="flex flex-col gap-6 h-full text-white">
           <h1 className="font-semibold ">Checkout</h1>
@@ -119,8 +119,8 @@ export function Checkout({ changeStep }: any) {
           <div className="flex flex-col gap-3">
             <p>2. Төлбөр төлөх сонголт</p>
             <div className="flex flex-wrap w-[400px]">
-              {banks.map((e) => (
-                <Button type="button">
+              {banks.map((e, i) => (
+                <Button key={i} type="button">
                   <img
                     src={e.imgsrc}
                     width={"15px"}
@@ -235,9 +235,12 @@ export function Checkout({ changeStep }: any) {
             <h1 className="text-slate-100 my-4 text-center">
               Guardians of the Galaxy Vol.3
             </h1>
-            {ordersDetail.map((e) => {
+            {ordersDetail.map((e, i) => {
               return (
-                <div className="flex justify-between text-slate-100 text-[12px] w-[250px]">
+                <div
+                  key={i}
+                  className="flex justify-between text-slate-100 text-[12px] w-[250px]"
+                >
                   <p>
                     {e.name} <span> x{e.quantity}</span>
                   </p>
