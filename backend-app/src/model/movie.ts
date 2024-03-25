@@ -6,7 +6,7 @@ const movieSchema = new Schema({
     require: true,
   },
   poster: {
-    horizontal: {
+    vertical: {
       type: String,
       require: true,
     },
@@ -22,6 +22,10 @@ const movieSchema = new Schema({
       },
     },
   },
+  movie_traler: {
+    type: String,
+    require: true,
+  },
   duration: Number,
   releaseDate: Date,
   director: {
@@ -34,9 +38,10 @@ const movieSchema = new Schema({
   },
   cinemas: [
     {
-      type: Schema.ObjectId,
-      ref: "Cinema",
-      //
+      name: {
+        type: Schema.ObjectId,
+        ref: "Cinema",
+      },
     },
   ],
   movieType: {

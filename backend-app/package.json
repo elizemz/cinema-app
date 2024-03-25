@@ -4,7 +4,8 @@
   "description": "Cinema app",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/index.ts"
+    "dev": "nodemon ./src/index.ts",
+    "db": "npx tsc  && node ./build/utils/upload.js"
   },
   "author": "",
   "license": "ISC",
