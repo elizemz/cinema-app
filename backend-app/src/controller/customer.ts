@@ -56,7 +56,10 @@ export const login = async (
     if (!customer) {
       throw new MyError(`${customerEmail}-тэй Хэрэглэгч олдсонгүй.`, 400);
     }
-    const isValid = await bcrypt.compare(customerPassword, customer.password);
+    const isValid = await bcrypt.compare(
+      customerPassword,
+      customer.password as string
+    );
     if (!isValid) {
       throw new MyError(`Имэйл эсвэл нууц үг буруу байна.`, 400);
     }
