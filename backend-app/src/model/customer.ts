@@ -28,7 +28,7 @@ const customerSchema = new Schema({
 
 customerSchema.pre("save", async function async(next) {
   if (this.isModified("password")) {
-    this.password = bcrypt.hashSync(this.password, 10);
+    this.password = bcrypt.hashSync(this.password as string, 10);
   }
   next();
 });
