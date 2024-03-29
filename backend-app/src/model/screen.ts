@@ -451,17 +451,17 @@ const screenSchema = new Schema({
           isNull: "false",
         },
         {
-          status: "available",
+          status: "unavailable",
           seatNumber: "6-4",
           isNull: "false",
         },
         {
-          status: "available",
+          status: "unavailable",
           seatNumber: "6-5",
           isNull: "false",
         },
         {
-          status: "available",
+          status: "unavailable",
           seatNumber: "6-6",
           isNull: "false",
         },
@@ -684,7 +684,7 @@ const screenSchema = new Schema({
         {
           status: "available",
           seatNumber: "9-1",
-          isNull: "true",
+          isNull: "false",
         },
         {
           status: "available",
@@ -759,14 +759,14 @@ const screenSchema = new Schema({
         {
           status: "available",
           seatNumber: "9-16",
-          isNull: "true",
+          isNull: "false",
         },
       ],
       [
         {
           status: "available",
           seatNumber: "10-1",
-          isNull: "true",
+          isNull: "false",
         },
         {
           status: "available",
@@ -841,7 +841,7 @@ const screenSchema = new Schema({
         {
           status: "available",
           seatNumber: "10-16",
-          isNull: "true",
+          isNull: "false",
         },
       ],
     ],
