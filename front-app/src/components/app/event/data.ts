@@ -19,7 +19,7 @@ export const events = [
     no: 2,
     name: "Sozhou River ",
     image:
-      "https://scontent.fuln4-3.fna.fbcdn.net/v/t39.30808-6/280752925_1197347787748036_7475917066551322472_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=_R2A7RLBLz0AX9shCI6&_nc_oc=AQneQB7Ukst5pekze6BQ4vTrDveR64Qydl6Pv_V7B4wR2R05E6BaTyuthb15BqVytLc&_nc_ht=scontent.fuln4-3.fna&oh=00_AfDbeJ3CrgKuSQlXcWm1DdfP2F18skqQM83GEJb9dlf1Ew&oe=65F967BB",
+      "https://filmforum.org/do-not-enter-or-modify-or-erase/client-uploads/SUZHOU_RIVER_thumbnail.png",
     // "https://images.static-bluray.com/reviews/28045_5.jpg",
     // "https://images.static-bluray.com/reviews/28045_1.jpg",
 
@@ -55,6 +55,34 @@ export const events = [
     //   "https://s.abcnews.com/images/GMA/drive-my-car-ht-ml-220118_1642510898335_hpMain.jpg",
     //   "https://i.ytimg.com/vi/YyDSxD51WRE/maxresdefault.jpg",
     // ],
+
+    date: "May 19",
+    about:
+      "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж Drive My Car (2014) киног Монгол хадмалаар гаргахаар боллоо",
+    location:
+      "Байршил: 3,4-р хорооллын Парадокс автобусны буудлын урд цэнхэр өнгөтэй UK Tower, 12 давхарт OWL Restaurant",
+    addition:
+      "Такс: 15.000 (Тасалбарт пиво, кола, жүүс зэргээс сонголтоор үнэгүй дагалдана)(Хосоороо ирвэл tax хүний 12.000 болж хямдарна шөө 😉 )Тасалбарыг үүднээсээ аваад орно.",
+  },
+  {
+    no: 5,
+    name: "Ghibli Event",
+    image:
+      "https://www.cnet.com/a/img/resize/211e9fe02c7ef3291e8729a6c2a3993e5bb8100d/hub/2020/05/26/f6e9b7de-842a-449e-b054-90699011fa36/ghi-spiritedaway-select4.jpg?auto=webp&fit=crop&height=675&width=1200",
+
+    date: "May 19",
+    about:
+      "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж Drive My Car (2014) киног Монгол хадмалаар гаргахаар боллоо",
+    location:
+      "Байршил: 3,4-р хорооллын Парадокс автобусны буудлын урд цэнхэр өнгөтэй UK Tower, 12 давхарт OWL Restaurant",
+    addition:
+      "Такс: 15.000 (Тасалбарт пиво, кола, жүүс зэргээс сонголтоор үнэгүй дагалдана)(Хосоороо ирвэл tax хүний 12.000 болж хямдарна шөө 😉 )Тасалбарыг үүднээсээ аваад орно.",
+  },
+  {
+    no: 6,
+    name: "Classic Horror",
+    image:
+      "https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2020/11/05/7-razones-para-que-universal-reviva-frankenstein-con-guillermo-del-toro.jpeg",
 
     date: "May 19",
     about:

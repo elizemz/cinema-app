@@ -10,7 +10,7 @@ type Props = {};
 
 export const Footer = (props: Props) => {
   return (
-    <div className="text-[#d3cfe6] bg-[#1f2333] overflow-hidden text-[12px] md:text-[16px] md:p-16">
+    <div className="text-gray-300 bg-slate-800 overflow-hidden text-[12px] md:text-[16px] md:p-16">
       <div className="grid mx-auto flex-col  items-center justify-center  md:grid-cols-2 xl:grid-cols-2 container md:mb-16">
         <div className="flex flex-col gap-4 justify-start">
           <div className="text-xl md:text-2xl font-bold mt-12 md:mb-4">
@@ -80,7 +80,7 @@ export const Footer = (props: Props) => {
         </div>
       </div>
       <div className="bg-slate-600 w-[640px] h-[1px] flex justify-center m-auto"></div>
-      <div className="font-medium flex justify-center bg-[#1f2333] h-16 mt-12">
+      <div className="font-medium flex justify-center bg-slate-800 h-16 mt-12">
         Copyright © 2024 | EYECANDY
       </div>
     </div>

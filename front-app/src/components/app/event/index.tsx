@@ -3,26 +3,25 @@ import React, { useState } from "react";
 import { events } from "./data";
 import { Button } from "@/components";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { EventBanner, EventSection } from "./eventSection";
+import { EventBanner, EventScroller } from "./eventSection";
+import Link from "next/link";
 
 type Props = {};
 
 export const EventPage = (props: Props) => {
   return (
-    <div className=" mx-auto container flex justify-center text-white items-center bg-gray-900">
-      <div className="w-[50%] bg-gray-800 flex flex-col mx-auto container mt-5">
-        <ScrollArea className="w-full h-[700px] whitespace-nowrap rounded-md">
+    <div className="w-full h-full mx-auto container flex justify-center flex-col-reverse text-white items-center bg-gray-900">
+      <div className="w-full flex mx-auto mt-20 sm:mt-28 lg:mt-40">
+        <div className="w-full h-full whitespace-nowrap rounded-md mb-80">
+          <div className="flex  font-bold text-xl sm:mx-12 md:mx-0 lg:mx-24 xl:mx-64">
+            Бүх үйл ажиллагаа
+          </div>
+          <EventScroller />
+          <div className="flex font-bold text-xl mb-6 sm:mb-12 sm:mx-12 md:mx-0 lg:mx-24 xl:mx-64">
+            Шинээр зарласан
+          </div>
           <EventBanner />
-          <EventBanner />
-          <ScrollBar orientation="vertical" />
-        </ScrollArea>
-      </div>
-
-      <div className="w-[50%]">
-        <ScrollArea className="w-full  whitespace-nowrap rounded-md">
-          <EventSection />
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
+        </div>
       </div>
     </div>
   );
