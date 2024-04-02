@@ -19,6 +19,7 @@ import {
   MonitorPlay,
   Clapperboard,
   FileVideo2,
+  Film,
 } from "lucide-react";
 import { useSidebar } from "./use-sidebar";
 import { cn } from "@/app/libs/utlis";
@@ -97,6 +98,14 @@ const Sidebar = ({}: SidebarProps) => {
                     icon={<FileVideo2 className="h-6 w-6" />}
                   ></LinkItem>
                 </ExpandMenu>
+              </li>
+
+              <li>
+                <LinkItem
+                  title="Cinema"
+                  href="/cinema"
+                  icon={<Film className="h-6 w-6" />}
+                ></LinkItem>
               </li>
 
               <li>
