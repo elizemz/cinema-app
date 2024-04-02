@@ -12,20 +12,21 @@ const Cinema = () => {
       <div className="flex">
         <Breadcrumb pageName="Cinema" />
         <Flex gap="5" className="ml-48 mb-5 text-lg">
-          Өргөө
+          <span className="text-red-400"> Өргөө</span>
+
           <Separator orientation="vertical" />
-          Тэнгис
+          <span className="text-red-400"> Тэнгис</span>
           <Separator orientation="vertical" />
-          Гэгээнтэн
+          <span className="text-red-400"> Гэгээнтэн</span>
           <Separator orientation="vertical" />
-          Prime
+          <span className="text-red-400"> Prime</span>
           <Separator orientation="vertical" />
-          Хүннү
+          <span className="text-red-400"> Хүннү</span>
         </Flex>
         <div className="ml-16 mb-3">
           <Dialog.Root>
             <Dialog.Trigger asChild>
-              <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-purple-700 text-white px-[15px] font-medium leading-none focus:shadow-black focus:outline-none">
+              <button className="inline-flex h-[35px] items-center justify-center rounded-[4px] bg-red-500 text-white px-[15px] font-medium leading-none focus:shadow-black focus:outline-none">
                 Add Cinema
               </button>
             </Dialog.Trigger>

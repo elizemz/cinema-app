@@ -8,14 +8,10 @@ import {
   User2Icon,
   LockIcon,
   BarChart2,
-  Component,
   Settings,
   Table2Icon,
   HomeIcon,
   LampIcon,
-  SignalHigh,
-  AlertCircle,
-  MousePointerClick,
   MonitorPlay,
   Clapperboard,
   FileVideo2,
@@ -23,7 +19,6 @@ import {
 } from "lucide-react";
 import { useSidebar } from "./use-sidebar";
 import { cn } from "@/app/libs/utlis";
-import MenuItem from "./MenuItem";
 import LinkItem from "./LinkItem";
 import ExpandMenu from "./ExpandMenu";
 
@@ -44,13 +39,22 @@ const Sidebar = ({}: SidebarProps) => {
     >
       <div className="relative flex w-full items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
         <Link className="flex items-center" href="/">
-          <Image
-            className="h-6 w-6 rounded-md"
-            width={400}
-            height={400}
-            src={"/images/logo/logo-icon.png"}
-            alt="Logo"
-          />
+          <div
+            style={{
+              fontSize: 24,
+              background: "red",
+              fontFamily: "600",
+              width: "40px",
+              height: "30px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+              borderRadius: "50%",
+            }}
+          >
+            C
+          </div>
           {isSidebarOpen && (
             <h1 className=" ml-2 text-xl font-semibold text-white">
               Cinema-Admin
