@@ -44,19 +44,28 @@ const DropdownUser = () => {
       >
         <span className="hidden text-right lg:block">
           <span className="block text-sm font-medium text-black dark:text-white">
-            Sadman Shakib
+            Central Cinema
           </span>
           <span className="block text-xs">Full Stack Developer</span>
         </span>
 
         <span className="h-12 w-12 rounded-full">
-          <Image
-            className="rounded-full"
-            width={112}
-            height={112}
-            src={"/images/sadmanshakib.jpg"}
-            alt="User"
-          />
+          <div
+            style={{
+              fontSize: 24,
+              background: "red",
+              fontFamily: "600",
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              color: "white",
+              borderRadius: "50%",
+            }}
+          >
+            C
+          </div>
         </span>
 
         <svg
@@ -176,7 +185,7 @@ const DropdownUser = () => {
               fill=""
             />
           </svg>
-          Log Out
+          Гарах
         </button>
       </div>
       {/* <!-- Dropdown End --> */}

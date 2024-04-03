@@ -91,7 +91,7 @@ const DropdownMessage = () => {
         }`}
       >
         <div className="px-4.5 py-3">
-          <h5 className="text-sm font-medium text-bodydark2">Messages</h5>
+          <h5 className="text-sm font-medium text-bodydark2">Мессежүүд</h5>
         </div>
 
         <ul className="flex h-auto flex-col overflow-y-auto">
@@ -104,17 +104,18 @@ const DropdownMessage = () => {
                 <Image
                   width={112}
                   height={112}
-                  src={"/images/user/user-02.png"}
+                  className="rounded-md"
+                  src={"/images/user/anu-egch.jpg"}
                   alt="User"
                 />
               </div>
 
               <div>
                 <h6 className="text-sm font-medium text-black dark:text-white">
-                  Mariya Desoja
+                  Анударь
                 </h6>
-                <p className="text-sm">I like your confidence 💪</p>
-                <p className="text-xs">2min ago</p>
+                <p className="text-sm">Чи надад үнхээр таалагдаж байна 💪</p>
+                <p className="text-xs">5 минутын өмнө</p>
               </div>
             </Link>
           </li>
@@ -127,17 +128,17 @@ const DropdownMessage = () => {
                 <Image
                   width={112}
                   height={112}
-                  src={"/images/user/user-01.png"}
+                  src={"/images/user/amraa-ah.jpg"}
                   alt="User"
                 />
               </div>
 
               <div>
                 <h6 className="text-sm font-medium text-black dark:text-white">
-                  Robert Jhon
+                  Амарболд
                 </h6>
-                <p className="text-sm">Can you share your offer?</p>
-                <p className="text-xs">10min ago</p>
+                <p className="text-sm">Би саналаа хуваалцаж болох уу?</p>
+                <p className="text-xs">10 минутын өмнө</p>
               </div>
             </Link>
           </li>
@@ -150,17 +151,17 @@ const DropdownMessage = () => {
                 <Image
                   width={112}
                   height={112}
-                  src={"/images/user/user-03.png"}
+                  src={"/images/user/unee.jpg"}
                   alt="User"
                 />
               </div>
 
               <div>
-                <h6 className="text-sm font-medium text-black dark:text-white">
-                  Henry Dholi
+                <h6 className="text-sm font-medium text-black rounded-md dark:text-white">
+                  Үнэнбат
                 </h6>
-                <p className="text-sm">I cam across your profile and...</p>
-                <p className="text-xs">1day ago</p>
+                <p className="text-sm">Би таны профайлыг олж хараад...</p>
+                <p className="text-xs">9 хоногийн өмнө</p>
               </div>
             </Link>
           </li>
@@ -173,17 +174,17 @@ const DropdownMessage = () => {
                 <Image
                   width={112}
                   height={112}
-                  src={"/images/user/user-04.png"}
+                  src={"/images/user/bilguun ah.jpg"}
                   alt="User"
                 />
               </div>
 
               <div>
                 <h6 className="text-sm font-medium text-black dark:text-white">
-                  Cody Fisher
+                  Билгүүн
                 </h6>
-                <p className="text-sm">I’m waiting for you response!</p>
-                <p className="text-xs">5days ago</p>
+                <p className="text-sm">Би танаас хариу хүлээж байна ^_^</p>
+                <p className="text-xs">3 хоногийн өмнө</p>
               </div>
             </Link>
           </li>
@@ -196,23 +197,22 @@ const DropdownMessage = () => {
                 <Image
                   width={112}
                   height={112}
-                  src={"/images/user/user-02.png"}
+                  src={"/images/user/bilguudei.jpg"}
                   alt="User"
                 />
               </div>
 
               <div>
                 <h6 className="text-sm font-medium text-black dark:text-white">
-                  Mariya Desoja
+                  Билгүүдэй
                 </h6>
-                <p className="text-sm">I like your confidence 💪</p>
-                <p className="text-xs">2min ago</p>
+                <p className="text-sm">Чи надад таалагдаж байна </p>
+                <p className="text-xs">2 минутын өмнө</p>
               </div>
             </Link>
           </li>
         </ul>
       </div>
-      {/* <!-- Dropdown End --> */}
     </li>
   );
 };

@@ -98,7 +98,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   const authLogged = () => {
     if (localStorage.getItem("token")) {
       setUser(JSON.parse(localStorage.getItem("user")!));
-      // console.log("USER", JSON.parse(localStorage.getItem("user")!));
       setToken(JSON.parse(localStorage.getItem("token")!));
     }
   };
