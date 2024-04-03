@@ -4,10 +4,9 @@ export const events = [
     name: "I Origins",
     image:
       "https://static01.nyt.com/images/2014/07/17/multimedia/i-origins-anatomy/i-origins-anatomy-superJumbo.jpg",
-    // "https://www.usatoday.com/gcdn/-mm-/40a0ae1a5993a76fcf7c098cc7e37532af2a798b/c=0-282-3000-1974/local/-/media/USATODAY/USATODAY/2014/07/23/1406144974000-AP-FILM-REVIEW-I-ORIGINS-65841022.JPG",
-    // "https://www.thisisbarry.com/wp-content/uploads/IOrigins/I-Origins-Astrid-Berges-Frisbey.jpg",
 
     date: "May 19",
+    link: "https://www.facebook.com/events/726696412460596/?acontext=%7B%22ref%22%3A%2252%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22share_link%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22share_link%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22invite_link_id%5C%22%3A1498485607307962%7D%7D]%22%7D",
     about:
       "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж I Origins (2014) киног Монгол хадмалаар гаргахаар боллоо",
     location:
@@ -20,10 +19,8 @@ export const events = [
     name: "Sozhou River ",
     image:
       "https://filmforum.org/do-not-enter-or-modify-or-erase/client-uploads/SUZHOU_RIVER_thumbnail.png",
-    // "https://images.static-bluray.com/reviews/28045_5.jpg",
-    // "https://images.static-bluray.com/reviews/28045_1.jpg",
-
     date: "May 22",
+    link: "https://www.facebook.com/cinemalovers.981/posts/pfbid02x7NDFSwrn7ckpmwmFAaBEWPtViVRQ63hwrWWCdQjEZzrybK4rcnfBE9QZBhfHLw4l",
     about:
       "Мэлмий Хангалга #19 Sozhou River кино эвент 5 сарын 22нд буюу энэ БҮТЭНСАЙН өдөр Интерномын 2 давхарт байдаг 4450 coffee shop-т 17:00, 19:00 цагуудаас тус тус гарахаар боллоо!",
     location:
@@ -36,10 +33,9 @@ export const events = [
     name: "THE PIANIST",
     image:
       "https://m.media-amazon.com/images/M/MV5BMTQ5MDQxMzQ3M15BMl5BanBnXkFtZTcwMjYxMTIyMw@@._V1_.jpg",
-    // "https://keithandthemovies.files.wordpress.com/2016/02/pianist-poster.jpg?w=584",
-    // "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2022/11/The-Pianist-with-Adrien-Brody-from-Roman-Polanski.jpg",
 
     date: "May 19",
+    link: "https://www.facebook.com/groups/4433103470085675/?multi_permalinks=7523018881094103&ref=share",
     about:
       "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж THE PIANIST (2014) киног Монгол хадмалаар гаргахаар боллоо",
     location:
@@ -52,11 +48,9 @@ export const events = [
     name: "Drive My Car",
     image:
       "https://assets.mubicdn.net/images/film/293319/image-w1280.jpg?1651858656",
-    //   "https://s.abcnews.com/images/GMA/drive-my-car-ht-ml-220118_1642510898335_hpMain.jpg",
-    //   "https://i.ytimg.com/vi/YyDSxD51WRE/maxresdefault.jpg",
-    // ],
 
     date: "May 19",
+    link: "https://www.facebook.com/fckdupmf/posts/pfbid037AELShqpMxFQqwxEBzi2XeBwPaPQMsDGc9XzbL4oEywLSzf1N39kFBytdo4SVhnCl",
     about:
       "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж Drive My Car (2014) киног Монгол хадмалаар гаргахаар боллоо",
     location:
@@ -66,13 +60,14 @@ export const events = [
   },
   {
     no: 5,
-    name: "Ghibli Event",
+    name: "Fallen Angels",
     image:
       "https://www.cnet.com/a/img/resize/211e9fe02c7ef3291e8729a6c2a3993e5bb8100d/hub/2020/05/26/f6e9b7de-842a-449e-b054-90699011fa36/ghi-spiritedaway-select4.jpg?auto=webp&fit=crop&height=675&width=1200",
 
     date: "May 19",
+    link: "https://www.facebook.com/fckdupmf/posts/pfbid02vh8ZzqdZifjRz265dZkFeqtXNBac5TmxSrgNM8b2KZgt5p7FefBPH9qKBZFMZKF7l",
     about:
-      "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж Drive My Car (2014) киног Монгол хадмалаар гаргахаар боллоо",
+      "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж Fallen Angels (2014) киног Монгол хадмалаар гаргахаар боллоо",
     location:
       "Байршил: 3,4-р хорооллын Парадокс автобусны буудлын урд цэнхэр өнгөтэй UK Tower, 12 давхарт OWL Restaurant",
     addition:
@@ -80,11 +75,12 @@ export const events = [
   },
   {
     no: 6,
-    name: "Classic Horror",
+    name: "A Classic Horror",
     image:
       "https://imagenes.20minutos.es/files/image_1920_1080/uploads/imagenes/2020/11/05/7-razones-para-que-universal-reviva-frankenstein-con-guillermo-del-toro.jpeg",
 
     date: "May 19",
+    link: "https://www.facebook.com/wowkino/posts/pfbid02PoDEwTwV2iYry9VweF6WTkHzWUSQwrATYSB9wFEoULLRFvCQmrQ7qMLpRVFP8Xwpl",
     about:
       "Ирж буй валентины баярыг угтан, энэ удаагын Мэлмий Хангалга Valentine Special эвентээр хосууддаа зориулж Drive My Car (2014) киног Монгол хадмалаар гаргахаар боллоо",
     location:

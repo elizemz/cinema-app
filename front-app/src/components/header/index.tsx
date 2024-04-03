@@ -15,7 +15,7 @@ const headers = [
     href: "/comingsoon",
   },
   {
-    header: "Үйл ажилагаа",
+    header: "Үйл ажиллагаа",
     href: "/event",
   },
   {
