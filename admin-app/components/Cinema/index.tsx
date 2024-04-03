@@ -2,11 +2,14 @@
 
 import { Button, Flex, Separator, Text, TextField } from "@radix-ui/themes";
 import Breadcrumb from "../Breadcrumbs/Breadcrumb";
-import React from "react";
+import React, { useContext } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
+import { CinemaCard } from "./CinemaCard";
+import { CinemaContext } from "../context/cinema";
 
 const Cinema = () => {
+  const { cinemas } = useContext(CinemaContext);
   return (
     <>
       <div className="flex">
@@ -38,7 +41,7 @@ const Cinema = () => {
                 </Dialog.Title>
                 <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-[15px] leading-normal">
                   Кино театрын нэмэхийг хүсвэл нэмэж болно. Гэхдээ ганцхан admin
-                  ууд
+                  ууд Үнэнбатаас өөр хүн хийж болкүүдээ хэхэ TvT.
                 </Dialog.Description>
                 <fieldset className="mb-[15px] flex items-center gap-5">
                   <label
@@ -71,6 +74,11 @@ const Cinema = () => {
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-wrap gap-5">
+          <CinemaCard cinemas={cinemas} />
         </div>
       </div>
     </>
