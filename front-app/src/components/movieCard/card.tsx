@@ -9,26 +9,22 @@ type Props = {
 
 export const MCard = ({ card }: Props) => {
   return (
-    <div className="flex justify-center my-10 flex-wrap gap-5 items-center">
+    <div className="flex justify-center my-4 flex-wrap gap-5 items-center">
       <Card
         className="transition ease-in duration-200 delay-100 hover:cursor-pointer hover:scale-105 border-2 border-slate-900 bg-slate-900 shadow-none w-[300px] h-[450px]"
         onClick={() => {
           console.log("aaa==>", card.title);
         }}
       >
-        <img
-          src={card.poster.vertical}
-          className="h-[380px] w-full rounded-t-lg border-none relative"
-        />
+        <DialogOpen card={card} />
         <Badge className="absolute mt-[-20px] bg-slate-800 shadow-none rounded-none rounded-tr-lg">
           {card.releaseDate.split("T")[0]}
         </Badge>
 
         <CardFooter className="bg-slate-800 flex items-center flex-col gap-2 rounded-b-lg">
-          <p className="text-white font-bold text-xl mt-8 overflow-hidden">
+          <p className="text-white font-bold text-sm mt-5 overflow-hidden">
             {card.title}
           </p>
-          <DialogOpen card={card} />
         </CardFooter>
       </Card>
     </div>
