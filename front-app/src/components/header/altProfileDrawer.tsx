@@ -16,7 +16,7 @@ export function AltProfileDrawer() {
     setShowSignIn(!showSignIn);
   };
 
-  const { user } = useContext(AuthContext);
+  const { loginuser } = useContext(AuthContext);
 
   const isActive = usePathname();
 
@@ -30,7 +30,7 @@ export function AltProfileDrawer() {
         </a>
       </SheetTrigger>
       <SheetContent className="flex justify-center items-center bg-slate-900 border-none">
-        {user == null ? (
+        {loginuser == null ? (
           <div>
             {showSignIn ? (
               <Login handleLinkClick={handleLinkClick} />
@@ -40,7 +40,7 @@ export function AltProfileDrawer() {
           </div>
         ) : (
           <div>
-            <Profile user={user} />
+            <Profile user={loginuser} />
           </div>
         )}
       </SheetContent>
