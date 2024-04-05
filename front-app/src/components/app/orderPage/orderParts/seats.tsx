@@ -1,5 +1,4 @@
 import { Button } from "@/components";
-import { ScreenContext } from "@/components/contexts/screen";
 import { Armchair } from "lucide-react";
 import React, { useContext, useState } from "react";
 
