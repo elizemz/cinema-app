@@ -74,26 +74,18 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   const getCurrentUser = async () => {
     try {
-      const {
-        data: { user },
-      } = await myAxios.get("/auth/login/success", { withCredentials: true });
-      console.log("UUUUSSSEEERRR ", user);
-      setUser(user);
+      const { data } = await myAxios.get("/auth/login/success", {
+        withCredentials: true,
+      });
+      console.log("UUUUSSSEEERRR ", data);
+      setUser(data);
       router.push("/");
       toast({
         title: "Амжилттай нэвтрэлээ!",
         description: "Enjoy your journey ^.^ 🫰",
         duration: 1500,
       });
-    } catch (error) {
-      if (error instanceof AxiosError) {
-        toast({
-          title: "Aldaa garlaa",
-          variant: "destructive",
-          description: `Aldaa = ${error.response?.data.message}`,
-        });
-      }
-    }
+    } catch (error) {}
   };
 
   const signup = async (email: string, password: string) => {
