@@ -33,8 +33,6 @@ export function HeadDrawer() {
     setShowDirects(!showDirects);
   };
 
-  const { user } = useContext(AuthContext);
-
   const isActive = usePathname();
 
   return (
