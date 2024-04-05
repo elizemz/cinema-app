@@ -40,22 +40,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     router.replace("/");
   };
 
-  const getUser = async () => {
-    try {
-      const { data } = await myAxios.get(
-        `http://localhost:8080/auth/login/success`,
-        {
-          withCredentials: true,
-        }
-      );
-      setUserData(data);
-      router.push("/");
-      console.log("Successfully login wiht google");
-    } catch (error: any) {
-      console.log("Error");
-    }
-  };
-
   const setUserData = (data: any) => {
     setUser(data.user);
     setToken(data.token);
@@ -88,11 +72,29 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  // toast({
-  //   title: "Амжилттай нэвтрэлээ!",
-  //   description: "Enjoy your journey ^.^ 🫰",
-  //   duration: 1500,
-  // });
+  const getCurrentUser = async () => {
+    try {
+      const {
+        data: { user },
+      } = await myAxios.get("/auth/login/success", { withCredentials: true });
+      console.log("UUUUSSSEEERRR ", user);
+      setUser(user);
+      router.push("/");
+      toast({
+        title: "Амжилттай нэвтрэлээ!",
+        description: "Enjoy your journey ^.^ 🫰",
+        duration: 1500,
+      });
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        toast({
+          title: "Aldaa garlaa",
+          variant: "destructive",
+          description: `Aldaa = ${error.response?.data.message}`,
+        });
+      }
+    }
+  };
 
   const signup = async (email: string, password: string) => {
     try {
@@ -129,8 +131,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  console.log("User =", loginuser);
-
   const logout = () => {
     setIsLoggingOut(true);
     localStorage.removeItem("user");
@@ -145,7 +145,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     authLogged();
-    getUser();
+    getCurrentUser();
   }, []);
 
   return (
