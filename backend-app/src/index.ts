@@ -31,7 +31,7 @@ setupPassport();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://cinema-client-cogjx9nvb-alianu23s-projects.vercel.app/",
     credentials: true,
   })
 );
