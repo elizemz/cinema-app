@@ -1,35 +1,44 @@
-"use client";
-import { ChangeEvent, useState, Fragment } from "react";
-
+"use State";
+import { Fragment, useState } from "react";
 
 import * as Tabs from "@radix-ui/react-tabs";
+import { Dialog, Transition } from "@headlessui/react";
 import { DialogText } from "./dialog-text";
 import { DialogFile } from "./dialog-file";
-import { Dialog, Transition } from "@headlessui/react";
-import { useEvent } from "@/context";
+import { useMovie } from "@/context";
 
-export const EventDialog = () => {
-  const { addEvent, setFile, isLoading } = useEvent();
-  const [eventData, setEventData] = useState({
-    name: "",
-    date: "",
-    link: "",
-    about: "",
-    location: "",
-    addition: "",
+export const MovieDialog = ({ movie }: any) => {
+  const { addMovie } = useMovie();
+  const [movieData, setMovieData] = useState({
+    title: "",
+    synopsis: "",
+    director: "",
+    duration: 0,
+    cast1: "",
+    cast2: "",
+    cast3: "",
+    movie_trailer: "",
+    releaseDate: "",
+    genre: "",
+    movieType: "",
+    adult: 0,
+    child: 0,
   });
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     handleChange(name, value);
   };
 
   const handleChange = (name: string, value: string) => {
-    setEventData({ ...eventData, [name]: value });
+    setMovieData({ ...movieData, [name]: value });
   };
 
   const handleAdd = () => {
-    addEvent(eventData);
+    addMovie(movieData);
+    setIsOpen(false);
   };
+
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -77,7 +86,7 @@ export const EventDialog = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className=" max-w-xxl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className=" max-w-lg transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -121,10 +130,7 @@ export const EventDialog = () => {
                       <p className="mb-5 text-mauve11 text-[15px] leading-normal">
                         Add event image, facebook link here.
                       </p>
-                      <DialogFile
-                        handleInputChange={handleInputChange}
-                        setFile={setFile}
-                      />
+                      <DialogFile handleInputChange={handleInputChange} />
                     </Tabs.Content>
                   </Tabs.Root>
                   <div className="mt-4">
@@ -133,7 +139,7 @@ export const EventDialog = () => {
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={handleAdd}
                     >
-                      Add event
+                      Got it, thanks!
                     </button>
                   </div>
                 </Dialog.Panel>

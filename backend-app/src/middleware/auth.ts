@@ -7,7 +7,7 @@ export const authenticate = async (
   res: Response,
   next: NextFunction
 ) => {
-  console.log("R", req.headers.authorization);
+  // console.log("R", req.headers.authorization);
   if (!req.headers.authorization) {
     return res
       .status(401)
@@ -15,7 +15,7 @@ export const authenticate = async (
   }
 
   const token = req.headers.authorization.split(" ")[1];
-  console.log("Token", token);
+  // console.log("Token", token);
 
   if (!token) {
     console.log("Token-null", token);
@@ -23,7 +23,7 @@ export const authenticate = async (
       .status(401)
       .json({ message: "Энэ үйлдлийг хийхийн тулд нэвтэрх ёстой" });
   } else {
-    console.log("Token-Yes", token);
+    // console.log("Token-Yes", token);
     const { userId } = verifyToken(token) as { userId: string };
     const findUser = await Customer.findById(userId).lean();
     req.user = findUser!;

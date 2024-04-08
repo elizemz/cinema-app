@@ -1,8 +1,14 @@
 import { Router } from "express";
-import { createComingsoon, getComingsoon } from "../controller/comingsoon";
+import {
+  createComingsoon,
+  getComingsoon,
+  deleteMovie,
+} from "../controller/comingsoon";
+import { authenticate } from "../middleware/auth";
 
 const router = Router();
 
-router.route("/").post(createComingsoon).get(getComingsoon);
+router.route("/").post(authenticate, createComingsoon).get(getComingsoon);
+router.route("/:movieId").delete(authenticate, deleteMovie);
 
 export default router;

@@ -32,12 +32,7 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
     }
   };
 
-  const [file, setFile] = useState<File | null>(null);
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFile(e.currentTarget.files![0]);
-    console.log("Files ===> ", e.currentTarget.files);
-  };
+  const [file, setFile] = useState<any>(null);
 
   const addEvent = async (eventData: any) => {
     console.log("IMAGE = ", file);
@@ -46,7 +41,7 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
       setLoading(true);
       const formData = new FormData();
       formData.set("name", eventData.name);
-      formData.set("image", file!);
+      formData.set("image", file);
       formData.set("date", eventData.date);
       formData.set("link", eventData.link);
       formData.set("about", eventData.about);
@@ -87,7 +82,7 @@ export const EventProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <EventContext.Provider
-      value={{ events, addEvent, isLoading, handleFileChange, deleteEvent }}
+      value={{ events, addEvent, isLoading, setFile, deleteEvent }}
     >
       {children}
     </EventContext.Provider>

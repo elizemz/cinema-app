@@ -2,11 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import Customer from "../model/customer";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-import MyError from "../utils/myError";
 import "dotenv/config";
 import generateToken from "../utils/generateToken";
-import { populate } from "dotenv";
-import path from "path";
 
 export const getCustomer = async (
   req: Request,

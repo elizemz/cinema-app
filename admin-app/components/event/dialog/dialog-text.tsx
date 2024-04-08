@@ -1,11 +1,8 @@
 import React from "react";
-import * as Checkbox from "@radix-ui/react-checkbox";
-import { CheckIcon } from "@radix-ui/react-icons";
 
 type Props = {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
-const typesMovie = ["2D", "3D", "IMAX", "LASER"];
 
 export const DialogText = ({ handleInputChange }: Props) => {
   return (

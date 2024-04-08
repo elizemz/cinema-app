@@ -1,14 +1,14 @@
 "use client";
 import React, { useContext } from "react";
 import Breadcrumb from "../../Breadcrumbs/Breadcrumb";
-import { ComingsoonContext } from "../../../context/comingsoon";
+import { useComingSoon } from "@/context";
 import { MovieCard } from "./movie-card";
-import { ComingsoonDialog } from "./coming-soon-dialog";
+import { ComingsoonDialog } from "./add-dialog/comingsoon-dialog.tsx";
 
 type Props = {};
 
 export const ComingSoon = (props: Props) => {
-  const { coMovies } = useContext(ComingsoonContext);
+  const { coMovies } = useComingSoon();
   return (
     <>
       <Breadcrumb pageName="Coming-soon" />

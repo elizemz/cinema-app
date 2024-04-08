@@ -2,13 +2,14 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import * as Tabs from "@radix-ui/react-tabs";
 
-import { DialogText } from "../dialog-text";
-import { DialogFile } from "../dialog-file";
+import { DialogText } from "./dialog-text";
+import { DialogFile } from "./dialog-file";
 import { Edit } from "lucide-react";
-import { Flex } from "@radix-ui/themes";
 import { DeleteDialog } from "@/components/utils";
+import { useMovie } from "@/context";
 
 export const EditDialog = ({ movie }: any) => {
+  const { deleteMovie } = useMovie();
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -64,7 +65,9 @@ export const EditDialog = ({ movie }: any) => {
           <div className="mt-[25px] flex gap-3 justify-end">
             <button className=" text-red-500 bg-red-300 hover:bg-red-400 focus:shadow-red-300 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:outline-none">
               <DeleteDialog
+                event={movie}
                 title={"Кино устгах"}
+                handleDelete={deleteMovie}
                 label={"Энэ киног устгахдаа итгэлтэй байна уу?"}
               />
             </button>

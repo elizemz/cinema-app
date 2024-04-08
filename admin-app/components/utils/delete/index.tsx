@@ -1,8 +1,14 @@
 import { useEvent } from "@/context";
 import { AlertDialog, Button, Flex } from "@radix-ui/themes";
 
-export const DeleteDialog = ({ label, event, title }: any) => {
-  const { deleteEvent } = useEvent();
+interface IDelete {
+  label?: string;
+  event?: string;
+  title?: string;
+  handleDelete?: (id: string) => Promise<void>;
+}
+
+export const DeleteDialog = ({ label, event, title, handleDelete }: any) => {
   return (
     <AlertDialog.Root>
       <AlertDialog.Trigger>
@@ -21,7 +27,7 @@ export const DeleteDialog = ({ label, event, title }: any) => {
           <AlertDialog.Action>
             <Button
               onClick={() => {
-                deleteEvent(event._id);
+                handleDelete(event._id);
               }}
               variant="solid"
               color="red"

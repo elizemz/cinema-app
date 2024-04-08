@@ -9,25 +9,32 @@ import React, {
 } from "react";
 import myAxios from "@/components/utils/axios";
 import { IMovies } from "@/types/movie";
-import { useAuth } from ".";
+import { CinemaContext, useAuth } from ".";
 import { toast } from "react-toastify";
 
 interface IMovieContext {
   movies: IMovies[];
-  selectedMovieId: string;
-  setSelectedMovieId: (id: string) => void;
   addMovie: (movieData: any) => Promise<void>;
+  setVertical: (e: any) => void;
+  setLandOne: (e: any) => void;
+  setLandTwo: (e: any) => void;
+  setCast1: (e: any) => void;
+  setCast2: (e: any) => void;
+  setCast3: (e: any) => void;
+  deleteMovie: (movieId: string) => Promise<void>;
+  isLoading: boolean;
 }
 
 export const MovieContext = createContext({} as IMovieContext);
 
 export const MovieProvider = ({ children }: PropsWithChildren) => {
+  const { cinemas } = useContext(CinemaContext);
   const [movies, setMovies] = useState([]);
-  const [selectedMovieId, setSelectedMovieId] = useState("");
   const { token } = useAuth();
   const [refresh, setRefresh] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
 
+  const cinemaId = cinemas.map((cinema: any) => cinema._id);
   const getMovies = async () => {
     try {
       const {
@@ -38,15 +45,47 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
     } catch (error) {}
   };
 
+  const [vertical, setVertical] = useState<any>(null);
+  const [landOne, setLandOne] = useState<any>(null);
+  const [landTwo, setLandTwo] = useState<any>(null);
+  const [cast1, setCast1] = useState<any>(null);
+  const [cast2, setCast2] = useState<any>(null);
+  const [cast3, setCast3] = useState<any>(null);
+
   const addMovie = async (movieData: any) => {
     console.log("EventData = ", movieData);
     try {
       setLoading(true);
       const {
         data: { movie },
-      } = await myAxios.post("/movie", movieData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      } = await myAxios.post(
+        "/movie",
+        {
+          title: movieData.title,
+          vertical: vertical,
+          land1: landOne,
+          land2: landTwo,
+          cast1img: cast1,
+          cast2img: cast2,
+          cast3img: cast3,
+          movie_trailer: movieData.movie_trailer,
+          duration: movieData.duration,
+          releaseDate: movieData.releaseDate,
+          director: movieData.director,
+          genre: movieData.genre,
+          synopsis: movieData.synopsis,
+          cinemas: cinemaId,
+          movieType: movieData.movieType,
+          cast1name: movieData.cast1,
+          cast2name: movieData.cast2,
+          cast3name: movieData.cast3,
+          adult: movieData.adult,
+          child: movieData.child,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setRefresh(!refresh);
       toast.success("Movie added successfully!");
     } catch (error) {
@@ -58,8 +97,9 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
 
   const deleteMovie = async (movieId: string) => {
     try {
+      console.log("MOVIEID ====> ", movieId);
       setLoading(true);
-      await myAxios.delete(`event/${movieId}`, {
+      await myAxios.delete(`movie/${movieId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRefresh(!refresh);
@@ -79,9 +119,15 @@ export const MovieProvider = ({ children }: PropsWithChildren) => {
     <MovieContext.Provider
       value={{
         movies,
-        setSelectedMovieId,
-        selectedMovieId,
         addMovie,
+        setVertical,
+        setLandOne,
+        setLandTwo,
+        setCast1,
+        setCast2,
+        setCast3,
+        deleteMovie,
+        isLoading,
       }}
     >
       {children}

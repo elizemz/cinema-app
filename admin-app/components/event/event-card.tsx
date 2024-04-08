@@ -2,12 +2,14 @@ import React from "react";
 import { Box, Card, Flex, Inset, Strong, Text } from "@radix-ui/themes";
 import { momentChange } from "../utils/moment";
 import { DeleteDialog } from "../utils";
+import { useEvent } from "..";
 
 type Props = {
   event: any;
 };
 
 export const EventCard = ({ event }: Props) => {
+  const { deleteEvent } = useEvent();
   return (
     <Box maxWidth="240px">
       <Card size="2">
@@ -31,6 +33,7 @@ export const EventCard = ({ event }: Props) => {
           <Text>{momentChange(event.date)}</Text>
           <DeleteDialog
             event={event}
+            handleDelete={deleteEvent}
             title={"Event устгах"}
             label={"Эвентийг устгахдаа итгэлтэй байна уу?"}
           />

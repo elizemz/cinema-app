@@ -1,5 +1,4 @@
 import { NextFunction, Response } from "express";
-import { IReq } from "../utils/interface";
 import Order from "../model/order";
 import Ticket from "../model/ticket";
 import Customer from "../model/customer";
