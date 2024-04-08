@@ -3,7 +3,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import Image from "next/image";
 
 import { FaUserCircle } from "react-icons/fa";
-import { useAuth } from "@/components/context/auth";
+import { useAuth } from "@/context";
 
 const Profile = () => {
   const { loginuser } = useAuth();
