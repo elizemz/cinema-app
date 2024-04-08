@@ -50,7 +50,7 @@ const movieSchema = new Schema({
   movieType: {
     type: String,
     enum: ["2D", "3D", "IMAX", "LASER"],
-    require: true,
+    default: "2D",
   },
   cast: [
     {

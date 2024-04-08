@@ -12,7 +12,7 @@ export interface IEvent {
 export type TEventContext = {
   events: IEvent[];
   addEvent: (eventData: any) => Promise<void>;
-  handleFileChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  setFile: (e: any) => void;
   deleteEvent: (eventId: string) => Promise<void>;
   isLoading: boolean;
 };

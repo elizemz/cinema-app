@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from "express";
-import Movie from "../model/movie";
 import Seat from "../model/seat";
 
 export const getSeats = async (

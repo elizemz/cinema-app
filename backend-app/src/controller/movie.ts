@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import Movie from "../model/movie";
 import MyError from "../utils/myError";
-import cloudinary from "../utils/cloudinary";
 import Customer from "../model/customer";
 
 export const getMovies = async (
@@ -17,25 +16,49 @@ export const getMovies = async (
   }
 };
 
+// const getCloudinaryLink = async (name, image) => {
+//   const { secure_url } = await cloudinary.uploader.upload(req.file.path);
+//   return secure_url;
+// };
+
 export const createMovie = async (
   req: any,
   res: Response,
   next: NextFunction
 ) => {
+  console.log(req.body);
+  // console.log("REQ FILE +++++ ", req.file);
   try {
     const finduser = Customer.findById(req.user?._id);
     if (!finduser) {
       throw new MyError("Нэмэх үйлдлийг хийхийн тулд нэвтрэх хэрэгтэй", 400);
     } else {
-      const newMovie = { ...req.body };
+      const newMovie = {
+        title: req.body.title,
+        poster: {
+          vertical: req.body.vertical || "",
+          lands: { land1: req.body.land1, land2: req.body.land2 },
+        },
+        movie_trailer: req.body.movie_trailer,
+        duration: req.body.duration,
+        releaseDate: req.body.releaseDate,
+        director: req.body.director,
+        genre: req.body.genre,
+        synopsis: req.body.synopsis,
+        cinemas: req.body.cinemas,
+        movieType: req.body.movieType || "2D",
+        cast: [
+          { name: req.body.cast1name, img: req.body.cast1img },
+          { name: req.body.cast2name, img: req.body.cast2img },
+          { name: req.body.cast3name, img: req.body.cast3img },
+        ],
+        ticketPrice: {
+          adult: req.body.adult,
+          child: req.body.child,
+        },
+      };
 
       console.log("newMovie", newMovie);
-      console.log("newMovie - image", req.file?.path);
-
-      if (req.file) {
-        const { secure_url } = await cloudinary.uploader.upload(req.file.path);
-        newMovie.image = secure_url;
-      }
 
       const movie = await Movie.create(newMovie);
       res.status(201).json({ message: "new event created", movie });
@@ -52,6 +75,7 @@ export const deleteMovie = async (
 ) => {
   try {
     const finduser = Customer.findById(req.user?._id);
+    console.log("MOVIEID =====", req.params.movieId);
     if (!finduser) {
       throw new MyError("Устгах үйлдлийг хийхийн тулд нэвтрэх хэрэгтэй", 400);
     } else {

@@ -1,11 +1,12 @@
-import React, { ChangeEvent } from "react";
+import { Cloudinary } from "@/components/utils/cloudinary-next/upload";
+import React from "react";
 
 type Props = {
-  handleFileChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  setFile: (e: any) => void;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const DialogFile = ({ handleFileChange, handleInputChange }: Props) => {
+export const DialogFile = ({ setFile, handleInputChange }: Props) => {
   return (
     <div className="flex gap-4">
       <div>
@@ -24,20 +25,13 @@ export const DialogFile = ({ handleFileChange, handleInputChange }: Props) => {
             type="url"
           />
         </fieldset>
-        <fieldset className="mb-[15px] w-full flex flex-col justify-start">
-          <label
-            className="text-[13px] leading-none mb-2.5 text-violet12 block"
-            htmlFor="EventImg"
-          >
-            Poster {"(Event poster image)"}
-          </label>
-          <input
-            className="grow pt-2 shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
-            id="vertical"
-            onChange={handleFileChange}
-            type="file"
-          />
-        </fieldset>
+        <div className="flex flex-col gap-3 mt-3">
+          <p className="text-[13px] text-violet12">Poster {"(Vertical img)"}</p>
+          <div className="border text-[15px] border-violet11 text-violet11 shadow-violet7 px-3 py-2 rounded">
+            {" "}
+            <Cloudinary setFunction={setFile} />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import React, {
 } from "react";
 
 import myAxios from "@/components/utils/axios";
+import { CinemaContext } from ".";
 
 interface IUser {
   email: string;
@@ -32,6 +33,7 @@ interface IAuthContext {
 export const AuthContext = createContext({} as IAuthContext);
 
 export const AuthProvider = ({ children }: PropsWithChildren<{}>) => {
+  
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [refresh, setRefresh] = useState(false);

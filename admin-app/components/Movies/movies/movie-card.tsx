@@ -1,7 +1,7 @@
 "use client";
-import React, { useState } from "react";
-import { Box, Button, Card, Flex, Inset, Strong, Text } from "@radix-ui/themes";
-import YouTube, { YouTubeProps } from "react-youtube";
+import React from "react";
+import { Box, Card, Flex, Inset, Strong, Text } from "@radix-ui/themes";
+
 import { TrailerDialog } from "./trailer-dailog";
 import { EditDialog } from "./edit/edit-dialog";
 
@@ -10,19 +10,6 @@ type Props = {
 };
 
 export const MovieCard = ({ movie }: Props) => {
-  const opts: YouTubeProps["opts"] = {
-    height: "390",
-    width: "640",
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
-  };
-  const onPlayerReady: YouTubeProps["onReady"] = (event) => {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
-  };
-
   return (
     <Box maxWidth="240px">
       <Card size="2" className="relative">
