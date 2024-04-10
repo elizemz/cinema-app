@@ -12,7 +12,7 @@ APPLICATION-start steps
 
 1.  Clone the repository from GitHub to your local machine using the command: git@github.com:Leap-MERN-2023/cinema-app.git
 
-2.  front, back end need to install node
+2.  front, back end need to install node => npm install
 
 3.  backend installations: install express, cors, colors, dotenv, nodemon to devDependencies
 
