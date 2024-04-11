@@ -1,3 +1,4 @@
+import { usePassword } from "@/components/contexts/passwordrecover";
 import { Button } from "@/components/ui";
 import React, { ChangeEvent } from "react";
 
@@ -9,6 +10,7 @@ interface IStepProps {
 }
 
 const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
+  const { loading } = usePassword();
   return (
     <div className=" bg-slate-700">
       <div className="flex items-center flex-col justify-center m-auto p-[32px] gap-8">
@@ -24,6 +26,7 @@ const EmailInput = ({ handleNext, handleChangeInput }: IStepProps) => {
         />
         <div className="flex w-[50%] ">
           <Button
+            disabled={loading}
             onClick={() => {
               handleNext();
             }}

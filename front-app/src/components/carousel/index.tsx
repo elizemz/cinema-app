@@ -34,38 +34,6 @@ export function CarouselCard(props: Props) {
   };
   const images = movies.map((movie: any) => movie.horizontalPoster);
   return (
-    <div className="w-full mt-[20px]  sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto">
-      <Carousel className="relative " onChange={nextSlide}>
-        <div className="flex justify-center items-center">
-          <button
-            onClick={prevSlide}
-            disabled={false}
-            className="text-white text-[24px] size-6 rounded-xl z-10 opacity-0 sm:opacity-100"
-          >
-            ❮
-          </button>
-          <CarouselContent
-            style={{
-              transform: `translateX(-${activeIndex * 100}%)`,
-              transition: "transform 1s ease-in",
-            }}
-          >
-            {movies.map((movie, index) => (
-              <CarouselItem key={index}>
-                <div className="p-1 ">
-                  <img
-                    src={movie.poster.lands.land1}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-[200px] sm:h-[280px] md:h-[360px] lg:h-[440px] xl:h-[520px] object-cover scroll-smooth snap-center shadow-2xl"
-                  />
-                  <div className="flex gap-3 absolute bottom-[20px] ml-5">
-                    <DialogOpen movie={movie} />
-                    <Trailermodal trailers={movie.movie_trailer} />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
     <>
       {!images ? (
         <Skeleton className="w-full h-[440px] mt-[20px] sm:mt-[40px] md:mt-[60px] lg:max-w-5xl mx-auto bg-white bg-opacity-10" />
@@ -102,6 +70,7 @@ export function CarouselCard(props: Props) {
                   </CarouselItem>
                 ))}
               </CarouselContent>
+
               <button
                 onClick={nextSlide}
                 className="text-white text-[24px] size-6 rounded-xl z-10 opacity-0 sm:opacity-100"

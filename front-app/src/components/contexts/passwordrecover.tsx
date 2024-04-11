@@ -26,6 +26,7 @@ interface IPasswordContext {
   activeStep: number;
   handleChangeToNewPassword: (email: string, password: string) => void;
   handleSendOtp: (email: string, otp: string) => void;
+  loading: boolean;
 }
 
 export const PasswordRecoverContext = createContext({} as IPasswordContext);
@@ -127,6 +128,7 @@ export const PasswordRecoverProvider = ({ children }: PropsWithChildren) => {
         handleChangeToNewPassword,
         handleSendOtp,
         user,
+        loading,
       }}
     >
       {children}
