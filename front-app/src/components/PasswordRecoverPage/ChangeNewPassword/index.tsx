@@ -14,7 +14,7 @@ interface IStepProps {
 }
 
 const ChangeNewPassword = ({ handleChangeInput }: IStepProps) => {
-  const { handleChangeToNewPassword, user } = usePassword();
+  const { handleChangeToNewPassword, user, loading } = usePassword();
   const [isShowPassword, setIsShowPassword] = useState(true);
   const [isShowPassword1, setIsShowPassword1] = useState(true);
   return (
@@ -75,6 +75,7 @@ const ChangeNewPassword = ({ handleChangeInput }: IStepProps) => {
         </div>
         <div className="flex w-[50%] ">
           <Button
+            disabled={loading}
             onClick={() => {
               handleChangeToNewPassword(user.email, user.password);
             }}
