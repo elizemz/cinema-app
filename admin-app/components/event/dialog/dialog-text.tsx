@@ -2,9 +2,11 @@ import React from "react";
 
 type Props = {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  demo: any;
+  isDemo: boolean;
 };
 
-export const DialogText = ({ handleInputChange }: Props) => {
+export const DialogText = ({ handleInputChange, demo, isDemo }: Props) => {
   return (
     <div className="flex  flex-col lg:flex-row gap-4 w-full">
       <div>
@@ -18,6 +20,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           <input
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             name="name"
+            value={isDemo ? demo.name : ""}
             onChange={handleInputChange}
             id="title"
           />
@@ -33,6 +36,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             name="date"
             onChange={handleInputChange}
+            value={isDemo ? demo.date : ""}
             type="Date"
             id="synopsis"
           />
@@ -48,6 +52,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="director"
             name="about"
+            value={isDemo ? demo.about : ""}
             onChange={handleInputChange}
             type="text"
           />
@@ -65,6 +70,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             placeholder="cast"
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
+            value={isDemo ? demo.location : ""}
             name="location"
             onChange={handleInputChange}
             type="text"
@@ -82,6 +88,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
             className="grow shrink-0 rounded px-2.5 text-[15px] leading-none text-violet11 shadow-[0_0_0_1px] shadow-violet7 h-[35px] focus:shadow-[0_0_0_2px] focus:shadow-violet8 outline-none"
             id="cast"
             name="addition"
+            value={isDemo ? demo.addition : ""}
             onChange={handleInputChange}
             type="text"
           />

@@ -34,8 +34,32 @@ export const ComingsoonDialog = ({}: any) => {
     setMovieData({ ...movieData, [name]: value });
   };
 
+  const [isDemo, setIsDemo] = useState(false);
+  const [demo, SetDemo] = useState({
+    title: "SPY x FAMILY CODE: White",
+    synopsis:
+      "Operation Strix-д солигдох тушаал хүлээн авсны дараа Лоид Аняаг Эден академид болсон хоол хийх уралдаанд түрүүлэхэд нь захирлын дуртай хоолыг хийж өгөхөөр шийджээ.",
+    director: "Такаши Катагири",
+    duration: 110,
+    cast1: "Саори Хаями",
+    cast2: "Atsumi Tanezaki",
+    cast3: "Hiroyuki Yoshino",
+    movie_trailer: "https://www.youtube.com/embed/m5TxWbtQ7qU",
+    releaseDate: "2024-04-18",
+    genre: "Анимэ, Адал явдалт",
+    movieType: "2D",
+  });
+
+  const demoFunc = () => {
+    setIsDemo(true);
+  };
+
   const handleAdd = () => {
-    addComingSoon(movieData);
+    if (isDemo == false) {
+      addComingSoon(movieData);
+    } else {
+      addComingSoon(demo);
+    }
     setIsOpen(false);
   };
 
@@ -126,23 +150,39 @@ export const ComingsoonDialog = ({}: any) => {
                       className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
                       value="tab1"
                     >
-                      <DialogText handleInputChange={handleInputChange} />
+                      <DialogText
+                        demo={demo}
+                        isDemo={isDemo}
+                        handleInputChange={handleInputChange}
+                      />
                     </Tabs.Content>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none"
                       value="tab2"
                     >
-                      <DialogFile handleInputChange={handleInputChange} />
+                      <DialogFile
+                        demo={demo}
+                        isDemo={isDemo}
+                        handleInputChange={handleInputChange}
+                      />
                     </Tabs.Content>
                   </Tabs.Root>
-                  <div className="mt-4">
+                  <div className="mt-4 flex gap-4">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                       disabled={isLoading}
                       onClick={handleAdd}
                     >
                       Кино нэмэх
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      disabled={isLoading}
+                      onClick={demoFunc}
+                    >
+                      Demo
                     </button>
                   </div>
                 </Dialog.Panel>

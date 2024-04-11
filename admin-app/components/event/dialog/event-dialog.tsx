@@ -28,10 +28,6 @@ export const EventDialog = () => {
     setEventData({ ...eventData, [name]: value });
   };
 
-  const handleAdd = () => {
-    addEvent(eventData);
-    setIsOpen(false);
-  };
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -41,6 +37,32 @@ export const EventDialog = () => {
   function openModal() {
     setIsOpen(true);
   }
+
+  const [isDemo, setIsDemo] = useState(false);
+  const [demo, SetDemo] = useState({
+    name: "Parasyte: the grey",
+    date: "2024-04-14",
+    link: "https://fmoviesz.to/tv/parasyte-the-grey-61130/1-1",
+    about: "Хуучин урт цагааны замын урд",
+    location: "Green house",
+    addition:
+      "Такс: 15.000 (Тасалбарт пиво, кола, жүүс зэргээс сонголтоор үнэгүй дагалдана)(Хосоороо ирвэл tax хүний 12.000 болж хямдарна шөө 😉 )Тасалбарыг үүднээсээ аваад орно.",
+    image:
+      "https://res.cloudinary.com/dzricfscv/image/upload/v1712838140/jjv7xcqg0d7sdbr3ffnx.jpg",
+  });
+
+  const demoFunc = () => {
+    setIsDemo(true);
+  };
+  const handleAdd = () => {
+    if (isDemo == false) {
+      addEvent(eventData);
+    } else {
+      addEvent(demo);
+    }
+    setIsOpen(false);
+  };
+
   const { loginuser } = useAuth();
   return (
     <>
@@ -120,7 +142,11 @@ export const EventDialog = () => {
                       className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
                       value="tab1"
                     >
-                      <DialogText handleInputChange={handleInputChange} />
+                      <DialogText
+                        handleInputChange={handleInputChange}
+                        demo={demo}
+                        isDemo={isDemo}
+                      />
                     </Tabs.Content>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none"
@@ -129,10 +155,12 @@ export const EventDialog = () => {
                       <DialogFile
                         handleInputChange={handleInputChange}
                         setFile={setFile}
+                        demo={demo}
+                        isDemo={isDemo}
                       />
                     </Tabs.Content>
                   </Tabs.Root>
-                  <div className="mt-4">
+                  <div className="mt-4 flex gap-4">
                     <button
                       type="button"
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -140,6 +168,14 @@ export const EventDialog = () => {
                       onClick={handleAdd}
                     >
                       Эвент нэмэх
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      disabled={isLoading}
+                      onClick={demoFunc}
+                    >
+                      Demo
                     </button>
                   </div>
                 </Dialog.Panel>

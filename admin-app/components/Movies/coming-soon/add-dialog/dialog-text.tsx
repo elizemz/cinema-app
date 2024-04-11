@@ -7,6 +7,8 @@ import { Flex } from "@radix-ui/themes";
 
 type Props = {
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  demo: any;
+  isDemo: boolean;
 };
 const typesMovie = [
   { name: "2D", id: "2D" },
@@ -15,7 +17,7 @@ const typesMovie = [
   { name: "LASER", id: "LASER" },
 ];
 
-export const DialogText = ({ handleInputChange }: Props) => {
+export const DialogText = ({ handleInputChange, demo, isDemo }: Props) => {
   return (
     <div className="flex gap-4 w-full">
       <div>
@@ -23,6 +25,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Киноны нэр"
           label="Гарчиг"
           name="title"
+          defaultValue={isDemo ? demo.title : ""}
           type={"text"}
           onChange={handleInputChange}
         />
@@ -30,6 +33,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Киноны тайлбар"
           label="Киноны тайлбар"
           name="synopsis"
+          defaultValue={isDemo ? demo.synopsis : ""}
           type={"text"}
           onChange={handleInputChange}
         />
@@ -37,6 +41,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Киноны Найруулагч"
           label="Найруулагч"
           name="director"
+          defaultValue={isDemo ? demo.director : ""}
           type={"text"}
           onChange={handleInputChange}
         />
@@ -44,6 +49,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Киноны үргэлжлэх хугацаа"
           label="Хугацаа"
           name="duration"
+          defaultValue={isDemo ? demo.duration : ""}
           type={"number"}
           onChange={handleInputChange}
         />
@@ -51,6 +57,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Киноны төрөл"
           label="Төрөл"
           name="genre"
+          defaultValue={isDemo ? demo.genre : ""}
           type={"text"}
           onChange={handleInputChange}
         />
@@ -58,6 +65,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Гарах өдөр"
           label="Гарах өдөр"
           name="releaseDate"
+          defaultValue={isDemo ? demo.releaseDate : ""}
           type={"date"}
           onChange={handleInputChange}
         />
@@ -67,12 +75,14 @@ export const DialogText = ({ handleInputChange }: Props) => {
           desc="Жүжигчин 1"
           label="Жүжигчин 1"
           name="cast1"
+          defaultValue={isDemo ? demo.cast1 : ""}
           type={"text"}
           onChange={handleInputChange}
         />
         <InputField
           desc="Жүжигчин 2"
           label="Жүжигчин 2"
+          defaultValue={isDemo ? demo.cast2 : ""}
           name="cast2"
           type={"text"}
           onChange={handleInputChange}
@@ -80,6 +90,7 @@ export const DialogText = ({ handleInputChange }: Props) => {
         <InputField
           desc="Жүжигчин 3"
           label="Жүжигчин 3"
+          defaultValue={isDemo ? demo.cast3 : ""}
           name="cast3"
           type={"text"}
           onChange={handleInputChange}
@@ -95,9 +106,9 @@ export const DialogText = ({ handleInputChange }: Props) => {
             {typesMovie.map((type: any, i: any) => (
               <RadioGroup.Root
                 key={i}
-                defaultValue="2D"
-                name="movieType"
+                defaultValue={isDemo ? demo.title : ""}
                 value={type.id}
+                name="movieType"
                 onChange={handleInputChange}
                 className="flex flex-row gap-7"
               >

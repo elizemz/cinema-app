@@ -6,9 +6,11 @@ import React, { ChangeEvent } from "react";
 
 type Props = {
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  demo: any;
+  isDemo: boolean;
 };
 
-export const DialogFile = ({ handleInputChange }: Props) => {
+export const DialogFile = ({ handleInputChange, demo, isDemo }: Props) => {
   const { setCast1, setCast2, setCast3, setLandOne, setLandTwo, setVertical } =
     useComingSoon();
   return (
@@ -17,6 +19,7 @@ export const DialogFile = ({ handleInputChange }: Props) => {
         desc="Трэйлер линк оруулна уу"
         label="Трэйлэр"
         name="movie_trailer"
+        defaultValue={isDemo ? demo.movie_trailer : ""}
         type={"text"}
         onChange={handleInputChange}
       />

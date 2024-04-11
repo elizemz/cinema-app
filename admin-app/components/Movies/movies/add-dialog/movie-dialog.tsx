@@ -9,7 +9,7 @@ import { useAuth, useMovie } from "@/context";
 import Link from "next/link";
 
 export const MovieDialog = ({ movie }: any) => {
-  const { addMovie } = useMovie();
+  const { addMovie, isLoading } = useMovie();
   const [movieData, setMovieData] = useState({
     title: "",
     synopsis: "",
@@ -35,8 +35,34 @@ export const MovieDialog = ({ movie }: any) => {
     setMovieData({ ...movieData, [name]: value });
   };
 
+  const [isDemo, setIsDemo] = useState(false);
+  const [demo, SetDemo] = useState({
+    title: "THE TIGER'S APPRENTICE",
+    synopsis:
+      "The story centres on a normal boy, Tom, who gets drawn into this world against his wishes when his eccentric grandmother turns out to be the guardian of the phoenix egg.",
+    director: "Carlos Baena",
+    duration: 82,
+    cast1: "Sandra Oh",
+    cast2: "Michelle Yeoh",
+    cast3: "Henry Golding",
+    movie_trailer: "https://www.youtube.com/embed/VgTc9zMQee8",
+    releaseDate: "2024-04-04",
+    genre: "Хүүхэлдэй",
+    movieType: "2D",
+    adult: 15000,
+    child: 10000,
+  });
+
+  const demoFunc = () => {
+    setIsDemo(true);
+  };
   const handleAdd = () => {
-    addMovie(movieData);
+    if (isDemo == false) {
+      addMovie(movieData);
+    } else {
+      addMovie(demo);
+    }
+
     setIsOpen(false);
   };
 
@@ -128,22 +154,39 @@ export const MovieDialog = ({ movie }: any) => {
                       className="grow p-5 bg-white rounded-b-md outline-none focus:shadow-[0_0_0_2px] focus:shadow-black"
                       value="tab1"
                     >
-                      <DialogText handleInputChange={handleInputChange} />
+                      <DialogText
+                        demo={demo}
+                        isDemo={isDemo}
+                        handleInputChange={handleInputChange}
+                      />
                     </Tabs.Content>
                     <Tabs.Content
                       className="grow p-5 bg-white rounded-b-md outline-none"
                       value="tab2"
                     >
-                      <DialogFile handleInputChange={handleInputChange} />
+                      <DialogFile
+                        demo={demo}
+                        isDemo={isDemo}
+                        handleInputChange={handleInputChange}
+                      />
                     </Tabs.Content>
                   </Tabs.Root>
-                  <div className="mt-4">
+                  <div className="mt-4 flex gap-4">
                     <button
                       type="button"
+                      disabled={isLoading}
                       className="inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-sm font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
                       onClick={handleAdd}
                     >
                       Кино нэмэх
+                    </button>
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      disabled={isLoading}
+                      onClick={demoFunc}
+                    >
+                      Demo
                     </button>
                   </div>
                 </Dialog.Panel>
