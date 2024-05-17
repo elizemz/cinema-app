@@ -20,31 +20,23 @@ const cinemaTypeOptions: readonly CinemaTypeOption[] = [
 ];
 
 const controlStyles = {
-  base: "border rounded-[5px] bg-[#020000] hover:cursor-pointer py-1 w-[100px] h-[56px] text-[10px] sm:text-[12px] lg:text-base w-[280px] sm:w-[280px] lg:w-[280px] xl:w-[340px]",
+  base: " rounded-md bg-slate-900 hover:bg-slate-800 py-1 h-12 min-w-40 text-[10px] sm:text-[12px] lg:text-base ",
   focus: "border-primary-400 ",
   nonFocus: "border-gray-800 hover:border-gray-400 py-1",
 };
-const placeholderStyles = "text-[#adadad]  pl-2 py-1 font-normal ";
+const placeholderStyles = "text-slate-500  pl-2 py-1 font-normal ";
 const selectInputStyles = "pl-1 py-0.5 ";
-const valueContainerStyles = "p-1 gap-1  text-[#adadad]";
-const singleValueStyles = "leading-7 pl-2 py-0.5";
+const valueContainerStyles = "p-1 gap-1  text-slate-400";
+const singleValueStyles = "leading-7 pl-2 text-slate-500";
 const multiValueStyles =
-  "rounded items-center px-1.5 py-0.5 gap-1.5 text-[#dddee0] bg-[#707481]";
+  "rounded items-center px-1 py-0.5 gap-1.5 text-white text-xs lg:text-sm bg-red-500";
 const multiValueLabelStyles = "leading-6 py-0.5 text-nowrap";
-const multiValueRemoveStyles =
-  "border border-gray-200 bg-white hover:bg-red-50 hover:text-red-800 text-gray-500 hover:border-red-300 rounded-md";
-const indicatorsContainerStyles = "p-1 gap-1";
-const clearIndicatorStyles =
-  "text-gray-500 p-1 rounded-md hover:bg-red-50 hover:text-red-800";
-const indicatorSeparatorStyles = "bg-gray-300";
 const dropdownIndicatorStyles =
   "p-1 text-gray-500 rounded-md hover:text-black ";
 const menuStyles =
-  "p-1 mt-2 border border-gray-200 bg-[#dddee0] rounded-lg p-2 ";
+  "p-1 mt-2 text-slate-400 border-gray-200 bg-slate-900 rounded-lg p-2 ";
 const groupHeadingStyles = "ml-3 mt-2 mb-1 text-gray-500 text-sm ";
-const optionStyles = "bg-green hover:bg-white p-2 rounded-[4px]";
-const noOptionsMessageStyles =
-  "text-gray-500 p-2 bg-gray-50 border border-dashed border-gray-200 rounded-sm";
+const optionStyles = "bg-green hover:bg-slate-800 p-2 rounded-md";
 
 export const MultiSelect = () => {
   const { setFilterByScreenType, setFilterByCinema, allFilteredMovies } =
@@ -74,7 +66,7 @@ export const MultiSelect = () => {
   };
   return (
     <div className="flex sm:flex-row">
-      <div className="flex flex-col gap-2 items-center justify-center md:flex-row">
+      <div className="flex flex-col sm:flex-row gap-2 items-center justify-center">
         <Select
           isMulti
           name="cinema"
@@ -94,17 +86,12 @@ export const MultiSelect = () => {
             singleValue: () => singleValueStyles,
             multiValue: () => multiValueStyles,
             multiValueLabel: () => multiValueLabelStyles,
-            multiValueRemove: () => multiValueRemoveStyles,
-            indicatorsContainer: () => indicatorsContainerStyles,
-            clearIndicator: () => clearIndicatorStyles,
-            indicatorSeparator: () => indicatorSeparatorStyles,
+
             dropdownIndicator: () => dropdownIndicatorStyles,
             menu: () => menuStyles,
-            groupHeading: () => groupHeadingStyles,
-            noOptionsMessage: () => noOptionsMessageStyles,
+
             option: () => optionStyles,
           }}
-          classNamePrefix="select"
         />
         <Select
           options={cinemasNameOption}
@@ -124,19 +111,16 @@ export const MultiSelect = () => {
             singleValue: () => singleValueStyles,
             multiValue: () => multiValueStyles,
             multiValueLabel: () => multiValueLabelStyles,
-            multiValueRemove: () => multiValueRemoveStyles,
-            indicatorsContainer: () => indicatorsContainerStyles,
-            clearIndicator: () => clearIndicatorStyles,
-            indicatorSeparator: () => indicatorSeparatorStyles,
+
             dropdownIndicator: () => dropdownIndicatorStyles,
             menu: () => menuStyles,
             groupHeading: () => groupHeadingStyles,
-            noOptionsMessage: () => noOptionsMessageStyles,
+
             option: () => optionStyles,
           }}
         />
         <button
-          className="underline text-xs sm:text-sm lg:text-base text-[#e5e7eb] sm:ml-6"
+          className="bg-slate-800 hover:bg-red-500 w-24 h-8 sm:h-12 rounded-md text-xs sm:text-sm lg:text-base text-slate-400 hover:text-white sm:ml-2"
           onClick={handleClear}
         >
           Арилгах
@@ -255,14 +239,10 @@ export const SelectCinema = () => {
         singleValue: () => singleValueStyles,
         multiValue: () => multiValueStyles,
         multiValueLabel: () => multiValueLabelStyles,
-        multiValueRemove: () => multiValueRemoveStyles,
-        indicatorsContainer: () => indicatorsContainerStyles,
-        clearIndicator: () => clearIndicatorStyles,
-        indicatorSeparator: () => indicatorSeparatorStyles,
-        dropdownIndicator: () => dropdownIndicatorStyles,
+
         menu: () => menuStyles,
         groupHeading: () => groupHeadingStyles,
-        noOptionsMessage: () => noOptionsMessageStyles,
+
         option: () => optionStyles,
       }}
     />

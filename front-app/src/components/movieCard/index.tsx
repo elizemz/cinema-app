@@ -11,7 +11,7 @@ export const MovieCard = (props: Props) => {
   const [pageCount, setPageCount] = useState(6);
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className=" grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {filteredMovies.slice(0, pageCount).map((card: any) => {
           return !card ? (
             <Skeleton className="w-[300px] rounded-xl bg-white bg-opacity-10 h-[450px]" />
