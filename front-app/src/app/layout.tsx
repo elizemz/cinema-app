@@ -46,7 +46,7 @@ export default function RootLayout({
                         {loading ? (
                           <Loader />
                         ) : (
-                          <div>
+                          <div className="bg-slate-900">
                             {children}
                             <Toaster />
                             <Footer />
